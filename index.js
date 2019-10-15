@@ -42,7 +42,7 @@ server.get('/projects',(req,res) =>{
 })
 
 //Erro a ser concertado no proximo commit
-server.post('/projects',checkProjectExists,(req,res) =>{
+server.post('/projects',(req,res) =>{
   const {id,title} = req.body
   const project = {
     id,
@@ -50,7 +50,7 @@ server.post('/projects',checkProjectExists,(req,res) =>{
     tasks : []
   }
   projects.push(project)
-  
+
   return res.json({"message" : "sucess"})
 })
 
