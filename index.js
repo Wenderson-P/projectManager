@@ -5,6 +5,7 @@ const server = express()
 server.listen(3000)
 server.use(express.json())
 
+let countRequests = 0;
 
 const projects = [
   {
@@ -18,6 +19,7 @@ const projects = [
     tasks: ["Reunião com equipe", "Planejar roadmap"]
   }
 ]
+
 function checkProjectExists(req,res,next){
   const {id} = req.params
   const project = projects.find(project => project.id ===id)
@@ -27,6 +29,13 @@ function checkProjectExists(req,res,next){
 
   return next()
 }
+
+//Middleware global
+server.use((req,res,next) =>{
+  countRequests++;
+  console.log(`Já foram feitas ${countRequests} requisições`)
+  return next()
+})
 
 server.get('/projects',(req,res) =>{
   return res.json(projects)
