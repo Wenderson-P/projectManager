@@ -30,6 +30,7 @@ server.post('/projects',(req,res) =>{
     "tasks" : []
   }
   projects.push(project)
+  return res.json({"message" : "sucess"})
 })
 
 server.put('/projects/:id',(req,res)=>{
@@ -46,12 +47,12 @@ server.put('/projects/:id/tasks',(req,res)=>{
   const {title} = req.body
   const project = projects.find(project => project.id ===id)
   project.tasks.push(title)
-  return res.json(projects)
+  return res.json({"message" : "sucess"})
 })
 
 server.delete('/projects/:id', (req,res) =>{
   const {id} = req.params
   projectIndex = projects.find(project => project.id === id)
   projects.splice(projectIndex,1)
-  return res.json(projects)
+  return res.json({"message" : "sucess"})
 })
