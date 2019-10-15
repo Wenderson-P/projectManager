@@ -49,6 +49,7 @@ server.put('/projects/:id/tasks',(req,res)=>{
 
 server.delete('/projects/:id', (req,res) =>{
   const {id} = req.params
-  projects.splice(id,1)
+  projectIndex = projects.find(project => project.id === id)
+  projects.splice(projectIndex,1)
   return res.json(projects)
 })
