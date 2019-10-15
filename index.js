@@ -39,6 +39,13 @@ server.put('/projects/:id',(req,res)=>{
   projects[id].title = title
 })
 
+server.put('/projects/:id/tasks',(req,res)=>{
+  const {id} = req.params
+  const {title} = req.body
+  const project = projects.find(project => project.id ===id)
+  project.tasks.push(title)
+  return res.json(projects)
+})
 
 server.delete('/projects/:id', (req,res) =>{
   const {id} = req.params
