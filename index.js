@@ -31,3 +31,10 @@ server.post('/projects',(req,res) =>{
   }
   projects.push(project)
 })
+
+server.put('/projects/:id',(req,res)=>{
+  const {id} = req.params
+  const {title} = req.body
+
+  projects[id].title = title
+})
