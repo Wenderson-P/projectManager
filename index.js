@@ -38,3 +38,10 @@ server.put('/projects/:id',(req,res)=>{
 
   projects[id].title = title
 })
+
+
+server.delete('/projects/:id', (req,res) =>{
+  const {id} = req.params
+  projects.splice(id,1)
+  return res.json(projects)
+})
