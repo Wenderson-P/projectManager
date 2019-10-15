@@ -27,7 +27,7 @@ server.post('/projects',(req,res) =>{
   const project = {
     "id" : req.body.id,
     "title" : req.body.title,
-    "tasks" : req.body.tasks
+    "tasks" : []
   }
   projects.push(project)
 })
