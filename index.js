@@ -35,8 +35,10 @@ server.post('/projects',(req,res) =>{
 server.put('/projects/:id',(req,res)=>{
   const {id} = req.params
   const {title} = req.body
+  const project = projects.find(project => project.id ===id)
 
-  projects[id].title = title
+  project.title = title
+  return res.json({"message" : "sucess"})
 })
 
 server.put('/projects/:id/tasks',(req,res)=>{
