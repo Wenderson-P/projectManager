@@ -18,3 +18,7 @@ const projects = [
     tasks: ["Reunião com equipe", "Planejar roadmap"]
   }
 ]
+
+server.get('/projects',(req,res) =>{
+  return res.json(projects)
+})
